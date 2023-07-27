@@ -2,18 +2,46 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Stage 1') {
             steps {
-                git branch: 'dev', credentialsId: '4bcd3de6-6b0a-407e-a7b8-303f99cecaf0', url: 'https://Shabbir_Sheikh@bitbucket.org/abjayon-insights/datalake.git'
+                echo 'This is Stage 1'
             }
         }
-
-        stage('Build') {
+        stage('Stage 2') {
             steps {
-                sh '''
-                    rsync -avz --delete $WORKSPACE/ /home/sam
-                '''
+                echo 'This is Stage 2'
             }
+        }
+        stage('Stage 3') {
+            steps {
+                echo 'This is Stage 3'
+            }
+        }
+        stage('Stage 4') {
+            steps {
+                echo 'This is Stage 4'
+            }
+        }
+        stage('Stage 5') {
+            steps {
+                echo 'This is Stage 5'
+            }
+        }
+    }
+        stage('Stage 6') {
+            steps {
+                echo 'This is Stage 6'
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'All stages completed successfully!'
+        }
+        
+        failure {
+            echo 'Pipeline failed! Review the logs and fix any issues.'
         }
     }
 }
