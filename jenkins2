@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Print Message') {
+            steps {
+                echo 'Hello, this is a Jenkins pipeline!'
+            }
+        }
+        
+        // Add more stages for your build, test, and deployment steps here
+    }
+    
+    post {
+        success {
+            // This block will execute when the pipeline is successful
+            echo 'Pipeline succeeded!'
+            // You can add further actions or notifications here
+        }
+        
+        failure {
+            // This block will execute when the pipeline fails
+            echo 'Pipeline failed! Review the logs and fix any issues.'
+            // You can add further actions or notifications here
+        }
+    }
+}
